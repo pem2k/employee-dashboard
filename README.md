@@ -25,6 +25,7 @@ Please install the required dependencies listed in package.json via npm
 
 Once the required dependencies are installed, run the command "node index.js". You will be prompted for manager information, then have the choice to add interns and engineers to the manager's team. Once you exit the application, an index.html file will be generated with cards describing the information of each team member.
 
+[Video-Walkthrough](https://drive.google.com/file/d/1XLOPjZMuZI45Km6LCbg3dLhMc0kXWPwF/view)
 
 
 ## Credits
@@ -37,7 +38,7 @@ Parker McKillop
 
 ## Tests
 
-
+Jest tests are included in the /tests directory
 
 ## Questions
 

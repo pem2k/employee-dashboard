@@ -41,7 +41,7 @@ const init = async () => {
                 message: "Please provide the manager's office number",
             }
         ])
-        empArr.push(new Manager(res.name, res.id, res.email, role, res.offNum))
+        empArr.push(new Manager(res.name, res.id, res.email, res.offNum))
         console.log(empArr)
         empFunc()
 
@@ -99,7 +99,7 @@ const newEngineer = async () => {
                 message: "Please provide the engineer's github user",
             }
         ])
-        empArr.push(new Engineer(res.name, res.id, res.email, role, res.github))
+        empArr.push(new Engineer(res.name, res.id, res.email, res.github))
         console.log(empArr)
         empFunc()
 
@@ -133,7 +133,7 @@ const newIntern = async () => {
                 message: "Please provide the name of the intern's school",
             }
         ])
-        empArr.push(new Intern(res.name, res.id, res.email, role, res.school))
+        empArr.push(new Intern(res.name, res.id, res.email, res.school))
         console.log(empArr)
         empFunc()
 
@@ -178,7 +178,7 @@ const generate = async () => {
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">ID: ${empArr[i].id}</li>
-                        <li class="list-group-item">Office: ${empArr[i].offNum}</li>
+                        <li class="list-group-item">Office: ${empArr[i].officeNumber}</li>
                         <li class="list-group-item">Email <a href ="mailTo:${empArr[i].email}">${empArr[i].email}</a></li>
                     </ul>
                     </div>`
@@ -186,15 +186,16 @@ const generate = async () => {
 
             } else if (empArr[i].role == "Engineer") {
                 await appendPromise("./dist/index.html", `
-                    <div class="card intern col-4" style=""></div>
-                    <div class="card-body">
+                    <div class = "col-4">
+                    <div class="card intern m-2 border-0" style=""></div>
+                    <div class="card-body bg-success">
                         <h5 class="card-title">${empArr[i].name}</h5>
-                        <p class="card-text">${empArr[i].role}</p>
+                        <p class="card-text">Role: ${empArr[i].role}</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">${empArr[i].id}</li>
-                        <li class="list-group-item">${empArr[i].github}</li>
-                        <li class="list-group-item">${empArr[i].email}</li>
+                        <li class="list-group-item">ID: ${empArr[i].id}</li>
+                        <li class="list-group-item">Github: <a href="https://www.github.com/${empArr[i].github}" target="_blank">${empArr[i].github}</a></li>
+                        <li class="list-group-item">Email <a href ="mailTo:${empArr[i].email}">${empArr[i].email}</a></li>
                     </ul>
                     </div>`
                 )
