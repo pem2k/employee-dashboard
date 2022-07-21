@@ -1,6 +1,7 @@
 const inquirer = require("inquirer")
 const fs = require("fs")
 const util = require("util")
+const Employee = require("./lib/Employee")
 const Manager = require("./lib/Manager")
 const Engineer = require("./lib/Engineer")
 const Intern = require("./lib/Intern")
@@ -26,7 +27,7 @@ const init = async () => {
             },
             {
                 type: "input",
-                name: "empId",
+                name: "id",
                 message: "Please provide the manager's ID number",
             },
             {
@@ -40,7 +41,7 @@ const init = async () => {
                 message: "Please provide the manager's office number",
             }
         ])
-        empArr.push(new Manager(res.name, res.empId, res.email, role, res.offNum))
+        empArr.push(new Manager(res.name, res.id, res.email, role, res.offNum))
         console.log(empArr)
         empFunc()
 
@@ -84,7 +85,7 @@ const newEngineer = async () => {
             },
             {
                 type: "input",
-                name: "empId",
+                name: "id",
                 message: "Please provide the engineer's ID number",
             },
             {
@@ -98,7 +99,7 @@ const newEngineer = async () => {
                 message: "Please provide the engineer's github user",
             }
         ])
-        empArr.push(new Engineer(res.name, res.empId, res.email, role, res.github))
+        empArr.push(new Engineer(res.name, res.id, res.email, role, res.github))
         console.log(empArr)
         empFunc()
 
@@ -118,7 +119,7 @@ const newIntern = async () => {
             },
             {
                 type: "input",
-                name: "empId",
+                name: "id",
                 message: "Please provide the intern's ID number",
             },
             {
@@ -132,7 +133,7 @@ const newIntern = async () => {
                 message: "Please provide the name of the intern's school",
             }
         ])
-        empArr.push(new Intern(res.name, res.empId, res.email, role, res.school))
+        empArr.push(new Intern(res.name, res.id, res.email, role, res.school))
         console.log(empArr)
         empFunc()
 
@@ -176,7 +177,7 @@ const generate = async () => {
                         <p class="card-text">Role: ${empArr[i].role}</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">ID: ${empArr[i].empId}</li>
+                        <li class="list-group-item">ID: ${empArr[i].id}</li>
                         <li class="list-group-item">Office: ${empArr[i].offNum}</li>
                         <li class="list-group-item">Email <a href ="mailTo:${empArr[i].email}">${empArr[i].email}</a></li>
                     </ul>
@@ -191,7 +192,7 @@ const generate = async () => {
                         <p class="card-text">${empArr[i].role}</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">${empArr[i].empId}</li>
+                        <li class="list-group-item">${empArr[i].id}</li>
                         <li class="list-group-item">${empArr[i].github}</li>
                         <li class="list-group-item">${empArr[i].email}</li>
                     </ul>
@@ -207,7 +208,7 @@ const generate = async () => {
                         <p class="card-text">Role: ${empArr[i].role}</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">ID: ${empArr[i].empId}</li>
+                        <li class="list-group-item">ID: ${empArr[i].id}</li>
                         <li class="list-group-item">School: ${empArr[i].school}</li>
                         <li class="list-group-item">Email <a href ="mailTo:${empArr[i].email}">${empArr[i].email}</a></li>
                     </ul>
